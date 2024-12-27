@@ -37,6 +37,7 @@ struct KnobWithVibration: View {
             Text("\(Int(normalizedAngle))")
                 .font(.custom("Doto", size: 60))
                 .fontWeight(.heavy)
+                .foregroundStyle(.black)
                 .padding(.vertical, 50)
             
             Spacer()
@@ -45,8 +46,8 @@ struct KnobWithVibration: View {
                 // Background markers
                 ForEach(0..<snapPoints.count, id: \.self) { snapPoint in
                     Rectangle()
-                        .fill(Color.yellow.opacity(0.3))
-                        .frame(width: 1.5, height: 12)
+                        .fill(Color.black.opacity(0.8))
+                        .frame(width: 2, height: 12)
                         .offset(y: -(knobWidth/2 + 15))
                         .rotationEffect(.degrees(Double(snapPoint) * step))
                 }
@@ -62,19 +63,19 @@ struct KnobWithVibration: View {
                                 endRadius: knobWidth/2
                             )
                         )
-                        .frame(width: (knobWidth + 10))
+                        .frame(width: (knobWidth + 5))
                     
                     Circle()
                         .fill(
                             RadialGradient(
-                                gradient: Gradient(colors: [Color(hex: "#212121"), Color(hex: "#111111")]),
+                                gradient: Gradient(colors: [Color(hex: "#404040"), Color(hex: "#232323")]),
                                 center: .center,
                                 startRadius: 0,
                                 endRadius: knobWidth/2
                             )
                         )
                         .frame(width: knobWidth)
-                        .shadow(radius: 50)
+                        .shadow(color: .black, radius: 10, x: 3, y:3)
                         .overlay(
                             Rectangle()
                                 .fill(Color.yellow)
@@ -100,7 +101,7 @@ struct KnobWithVibration: View {
         }
         .onChange(of: angle, triggerHapticFeedback)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(hex:"#252525"))
+        .background(Color(hex:"#717171"))
         .preferredColorScheme(.dark)
     }
     
@@ -139,5 +140,5 @@ struct KnobWithVibration: View {
 }
 
 #Preview {
-    KnobWithVibration(knobWidth: .constant(320), step: .constant(10))
+    KnobWithVibration(knobWidth: .constant(320), step: .constant(5))
 }
