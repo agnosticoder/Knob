@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		22AF82C72D1F7A00004B9C35 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 22AF82C62D1F7A00004B9C35 /* Inject */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		22B97B4B2D1907D400FB3FB7 /* Knob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Knob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22AF82C72D1F7A00004B9C35 /* Inject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = Knob;
 			packageProductDependencies = (
+				22AF82C62D1F7A00004B9C35 /* Inject */,
 			);
 			productName = Knob;
 			productReference = 22B97B4B2D1907D400FB3FB7 /* Knob.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = 22B97B422D1907D400FB3FB7;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				22AF82C52D1F7A00004B9C35 /* XCRemoteSwiftPackageReference "Inject" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 22B97B4C2D1907D400FB3FB7 /* Products */;
 			projectDirPath = "";
@@ -195,6 +204,10 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -339,6 +352,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		22AF82C52D1F7A00004B9C35 /* XCRemoteSwiftPackageReference "Inject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22AF82C62D1F7A00004B9C35 /* Inject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22AF82C52D1F7A00004B9C35 /* XCRemoteSwiftPackageReference "Inject" */;
+			productName = Inject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 22B97B432D1907D400FB3FB7 /* Project object */;
 }
